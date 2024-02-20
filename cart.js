@@ -1,10 +1,37 @@
 let tbody=document.querySelector("tbody");
+let total=0;
 class SessionItem{
     setCartProducts(productArray){
         sessionStorage.setItem("CartProducts",JSON.stringify(productArray));
     }
     getProducts(productArray){
         return JSON.parse(sessionStorage.getItem("addToCart"));
+    }
+}
+
+class PayTotal{
+    updateTotal(updateAmount,updateId){
+        let products=JSON.parse(sessionStorage.getItem("addToCart"));
+        let updateAllProductsTotal=0;
+        
+        products.map(item=>{
+            if(item.id===updateId){
+                item.amount=updateAmount;
+            }
+        })
+
+        console.log(products);
+        sessionStorage.setItem("addToCart",JSON.stringify(products));
+        let htmlTotal=document.querySelector('.total');
+        //updateAllProductsTotal=parseInt(htmlTotal.innerText);
+        products.forEach(item=>{
+            updateAllProductsTotal+=item.amount*item.price;
+        })
+
+        
+        
+        htmlTotal.innerText=updateAllProductsTotal;
+
     }
 }
 
@@ -20,6 +47,7 @@ class CartProducts{
 }
 class Ui{
     async showProducts(products){
+        
         let result="";
         products.forEach(eachProduct=>{
             result+=`<tr>
@@ -27,16 +55,25 @@ class Ui{
             <td><img src=${eachProduct.img} alt=""></td>
             <td>${eachProduct.title}</td>
             <td>${eachProduct.price}</td>
-            <td>${eachProduct.amount}</td>
+            <td>
+                <input type="button" value="-" class="minus">
+                <input type="text" name="" id="" value="${eachProduct.amount}"  />
+                <input type="button" value="+" class="plus">
+            </td>
             <td><button id="${eachProduct.id}" class="add">add</button></td>
             <td><button id="${eachProduct.id}" class="remove">remove</button></td>
         </tr>`
-        });
+
+        total+=eachProduct.price*eachProduct.amount;
+        
+        }); 
+        result+=`<tr><td class="total">Total: ${total}</td></tr>`
+
         tbody.innerHTML=result;
 
     }
 
-    async removeProducts(product){
+    async removeProducts(){
     let removeProduct=document.querySelectorAll('.remove');
     removeProduct.forEach(rp=>rp.addEventListener('click',removeItem));
         function removeItem(e){
@@ -48,10 +85,43 @@ class Ui{
             console.log(sessionStorage.getItem("addToCart"));
         }
     }
+    
 
-    updateProducts(product){
-        
-    }
+    async updateProducts(){
+        let payTotal=new PayTotal();
+        let plus=document.querySelectorAll('.plus');
+        plus.forEach(p=>p.addEventListener('click',addamount));
+        let minus=document.querySelectorAll('.minus');
+        minus.forEach(m=>m.addEventListener('click',minusamount));
+        function addamount(e){
+            let getPlus=e.target.previousElementSibling;
+            let plus=parseInt(getPlus.value);
+            let id=e.target.parentNode.parentNode.querySelector(':first-child').innerHTML;
+            console.log(id);
+            
+            plus+=1;
+            getPlus.value=plus;
+            payTotal.updateTotal(getPlus.value,id);
+
+         
+        }
+
+        function minusamount(e){
+            let getminus=e.target.nextElementSibling;
+            let mminus=parseInt(getminus.value);
+            if(mminus>1){
+                mminus-=1;
+                getminus.value=mminus;
+            }else{
+                mminus=1;
+                getminus.value=mminus;
+            }
+            
+            let id=e.target.parentNode.parentNode.querySelector(':first-child').innerHTML;
+            payTotal.updateTotal(getminus.value,id);
+        }
+}
+    
 }
 
 
@@ -62,8 +132,9 @@ let cartProducts=new CartProducts();
 document.addEventListener('DOMContentLoaded',()=>{
 cartProducts.getCartProducts()
 .then(()=>{
-    show.removeProducts();
     show.updateProducts();
+    show.removeProducts();
+    
 })
 })
 
