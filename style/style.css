@@ -20,14 +20,9 @@ header{
 
 
 .list{
-  
-   
     background-color:#FFE4C9 ;
 
     width: 100vw;
-   
-    
-
 }
 ul{
     display: flex;
@@ -82,7 +77,8 @@ li{
 }
 .footer{
     width: 100vw;
-    background-color: green;
+    background-color: #FFF7F1;
+    color: black;
 }
 
 
