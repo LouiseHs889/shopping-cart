@@ -60,7 +60,10 @@ li{
     vertical-align: middle;
     border: 1px solid black; 
 }
-
+.divImg{
+    height: 100%;
+    width: 100%;
+}
 .quantity {
     display: flex;
     align-items: center; /* 垂直居中 */

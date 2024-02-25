@@ -76,7 +76,7 @@ class Ui{
         products.forEach(eachProduct=>{
             result+=`<div id=${eachProduct.id} class="item">
             <div>${eachProduct.id}</div>
-            <div><img src=${eachProduct.img} alt=""></div>
+            <div class="divImg"><img src=${eachProduct.img} alt=""></div>
             <div>${eachProduct.title}</div>
             <div>${eachProduct.price}</div>
           

@@ -47,17 +47,20 @@ li{
 }
 .table_container .item img{
     width: 100%;
+ 
     position: relative;
     left: 50%;
     transform: translate(-50%);
     filter: drop-shadow(0 50px 20px #0009);
 }
+
 .table_container .item{
     background-color: #BED1CF;
     padding: 20px;
     border-radius: 20px;
-    
+ 
 }
+
 
 .item button{
     background-color: #FFD9A8;
