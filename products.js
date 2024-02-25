@@ -1,5 +1,6 @@
 alert("hhh");
 let tbody=document.querySelector("tbody");
+let list_products=document.querySelector(".table_container");
 let productId=0;
 
 async function addToCart(e){
@@ -73,16 +74,16 @@ class Ui{
      showProducts(products){
         let result="";
         products.forEach(eachProduct=>{
-            result+=`<tr>
-            <td>${eachProduct.id}</td>
-            <td><img src=${eachProduct.img} alt=""></td>
-            <td>${eachProduct.title}</td>
-            <td>${eachProduct.price}</td>
+            result+=`<div id=${eachProduct.id} class="item">
+            <div>${eachProduct.id}</div>
+            <div><img src=${eachProduct.img} alt=""></div>
+            <div>${eachProduct.title}</div>
+            <div>${eachProduct.price}</div>
           
-            <td><button id="${eachProduct.id}" class="add">add</button></td>
-        </tr>`
+            <div><button id="${eachProduct.id}" class="add">add</button></div>
+        </div>`
         });
-        tbody.innerHTML=result;
+        list_products.innerHTML=result;
 
     }
 
