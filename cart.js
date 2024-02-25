@@ -1,4 +1,5 @@
 let tbody=document.querySelector("tbody");
+let resultTotalhtml=document.querySelector(".reaultTotal")
 let total=0;
 class SessionItem{
     setCartProducts(productArray){
@@ -49,6 +50,7 @@ class Ui{
     async showProducts(products){
         
         let result="";
+        let resultTotal="";
         products.forEach(eachProduct=>{
             result+=`<tr>
             <td>${eachProduct.id}</td>
@@ -56,9 +58,11 @@ class Ui{
             <td>${eachProduct.title}</td>
             <td>${eachProduct.price}</td>
             <td>
+            <div class="quantity">
                 <input type="button" value="-" class="minus">
-                <input type="text" name="" id="" value="${eachProduct.amount}"  />
+                <input type="text" name="" id=""  value="${eachProduct.amount}"  />
                 <input type="button" value="+" class="plus">
+            </div>
             </td>
             <td><button id="${eachProduct.id}" class="add">add</button></td>
             <td><button id="${eachProduct.id}" class="remove">remove</button></td>
@@ -67,9 +71,10 @@ class Ui{
         total+=eachProduct.price*eachProduct.amount;
         
         }); 
-        result+=`<tr><td class="total">Total: ${total}</td></tr>`
+        resultTotal+=`<h3>Total:</h3><h3 class="total"> ${total}</h3></h3>`
 
         tbody.innerHTML=result;
+        resultTotalhtml.innerHTML=resultTotal;
 
     }
 
@@ -96,7 +101,7 @@ class Ui{
         function addamount(e){
             let getPlus=e.target.previousElementSibling;
             let plus=parseInt(getPlus.value);
-            let id=e.target.parentNode.parentNode.querySelector(':first-child').innerHTML;
+            let id=e.target.parentNode.parentNode.parentNode.querySelector(':first-child').innerHTML;
             console.log(id);
             
             plus+=1;
@@ -117,7 +122,7 @@ class Ui{
                 getminus.value=mminus;
             }
             
-            let id=e.target.parentNode.parentNode.querySelector(':first-child').innerHTML;
+            let id=e.target.parentNode.parentNode.parentNode.querySelector(':first-child').innerHTML;
             payTotal.updateTotal(getminus.value,id);
         }
 }
