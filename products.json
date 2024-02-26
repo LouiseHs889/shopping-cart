@@ -4,7 +4,7 @@
       {
         "sys": { "id": "1" },
         "fields": {
-          "title": "queen panel bed",
+          "title": "grey soft chair",
           "price": 10.99,
           "image": { "fields": { "file": { "url": "./img/1.png" } } }
         }
@@ -12,7 +12,7 @@
       {
         "sys": { "id": "2" },
         "fields": {
-          "title": "king panel bed",
+          "title": "blue soft chair",
           "price": 12.99,
           "image": { "fields": { "file": { "url": "./img/2.png" } } }
         }
@@ -20,23 +20,23 @@
       {
         "sys": { "id": "3" },
         "fields": {
-          "title": "queen panel bed",
-          "price": 10.99,
+          "title": "wood hard chair",
+          "price": 11.99,
           "image": { "fields": { "file": { "url": "./img/3.png" } } }
         }
       },
       {
         "sys": { "id": "4" },
         "fields": {
-          "title": "king panel bed",
-          "price": 12.99,
+          "title": "sapphire soft chair",
+          "price": 13.99,
           "image": { "fields": { "file": { "url": "./img/4.png" } } }
         }
       },
       {
         "sys": { "id": "5" },
         "fields": {
-          "title": "queen panel bed",
+          "title": "coffee soft chair",
           "price": 10.99,
           "image": { "fields": { "file": { "url": "./img/5.png" } } }
         }
@@ -44,7 +44,7 @@
       {
         "sys": { "id": "6" },
         "fields": {
-          "title": "king panel bed",
+          "title": "black narrow chair",
           "price": 12.99,
           "image": { "fields": { "file": { "url": "./img/6.png" } } }
         }
@@ -52,15 +52,15 @@
       {
         "sys": { "id": "7" },
         "fields": {
-          "title": "queen panel bed",
-          "price": 10.99,
+          "title": "black wide chair",
+          "price": 14.99,
           "image": { "fields": { "file": { "url": "./img/7.png" } } }
         }
       },
       {
         "sys": { "id": "8" },
         "fields": {
-          "title": "king panel bed",
+          "title": "black wood chair",
           "price": 12.99,
           "image": { "fields": { "file": { "url": "./img/8.png" } } }
         }

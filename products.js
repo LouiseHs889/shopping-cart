@@ -1,10 +1,10 @@
-alert("hhh");
+alert("Welcome");
 let tbody=document.querySelector("tbody");
 let list_products=document.querySelector(".table_container");
 let productId=0;
 
 async function addToCart(e){
-    alert("hello");
+    alert("Add to chart");
    let id= e.target.id;
    productId= id;
   
@@ -76,7 +76,7 @@ class Ui{
         products.forEach(eachProduct=>{
             result+=`<div id=${eachProduct.id} class="item">
             <div>${eachProduct.id}</div>
-            <div class="divImg"><img src=${eachProduct.img} alt=""></div>
+            <div><img src=${eachProduct.img} alt=""></div>
             <div>${eachProduct.title}</div>
             <div>${eachProduct.price}</div>
           

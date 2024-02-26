@@ -64,7 +64,7 @@ class Ui{
                 <input type="button" value="+" class="plus">
             </div>
             </td>
-            <td><button id="${eachProduct.id}" class="add">add</button></td>
+            
             <td><button id="${eachProduct.id}" class="remove">remove</button></td>
         </tr>`
 
